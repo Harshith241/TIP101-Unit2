@@ -18,7 +18,11 @@ Example Output: 3.33
 
 '''
 
-def calculate_gpa(report_card):
+'''
+    The repitetive if else statements can be removed using dictionaries, check below
+    
+
+    def calculate_gpa(report_card):
     just_values = report_card.values()
     sum = 0
     for grade in just_values:
@@ -34,4 +38,25 @@ def calculate_gpa(report_card):
     return round(GPA, 2)
 
 report_card = {"Math": "A", "Science": "C", "History": "A", "Art": "B", "English": "B", "Spanish": "A"}
+print(calculate_gpa(report_card)) '''
+
+def calculate_gpa(report_card):
+     grade_points = {
+        "A": 4,
+        "B": 3,
+        "C": 2,
+        "D": 1,
+        "F": 0
+        }
+     total = 0 
+
+     for grade in report_card.values():
+          total += grade_points.get(grade)
+     
+     GPA = total/len(report_card)
+     return round(GPA, 2)
+
+report_card = {"Math": "A", "Science": "C", "History": "A", "Art": "B", "English": "B", "Spanish": "A"}
 print(calculate_gpa(report_card))
+     
+    
